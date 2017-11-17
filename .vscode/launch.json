@@ -1,0 +1,84 @@
+{
+	"version": "1.4.0",
+	"configurations": [
+		{
+            "name": "Attach",
+            "type": "chrome",
+            "request": "attach",
+            "port": 3300,
+			"url": "http://localhost:3301/home",
+			"sourceMaps": true,
+			"webRoot": "${workspaceRoot}",
+			"trace": "verbose"
+        },
+        {
+			"type": "node",
+			"request": "launch",
+			"name": "Launch Program",
+			"program": "${workspaceRoot}/nodemon"
+		},
+		{
+			"name": "Launch server.js via nodemon",
+			"type": "node",
+			"request": "launch",
+			"runtimeExecutable": "nodemon",
+			"program": "${workspaceRoot}/index.js",
+			"restart": true,
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+			{
+				"type": "nodlae",
+				"request": "launch",
+				"name": "Node Launc Program",
+				"program": "${workspaceFolder}/",
+				"cwd": "${workspaceFolder}"
+			},
+			{
+				"type": "node",
+				"request": "attach",
+				"name": "Attach Node to Process",
+				"port": 4000
+			},
+
+
+	
+		{
+            "name": "launch chrome-debug",
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+
+            // These paths are only valid for my particular setup! You need to replace them with your own.
+            "cwd": "${workspaceRoot}/../vscode-chrome-debug",
+            "program": "${workspaceRoot}/../vscode-chrome-debug/out/bundle.js",
+            "args": [ "--server=4712" ],
+            "outFiles": ["${workspaceRoot}/out/**/*.js"],
+            "internalConsoleOptions": "openOnSessionStart",
+            "smartStep": true
+        },
+		{
+			"name": "Launch",
+			"type": "node",
+			"request": "launch",
+			 "protocol": "inspector",
+			"program": "${workspaceRoot}/node_modules/lite-server/bin/lite-server",
+			
+			"stopOnEntry": false,
+			"args": [],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},			
+			"console": "integratedTerminal",
+			"sourceMaps": true,
+			"outFiles": [ "${workspaceRoot}/out/**/*.js" ]
+		}
+	
+	]
+}

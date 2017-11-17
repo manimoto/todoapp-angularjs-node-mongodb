@@ -1,0 +1,15 @@
+<div class='container'>
+    <div class='row'>
+		<div class='col-sm-4 col-sm-offset-4 text-center'>
+			<h1>Admin Login</h1>
+			<form name="loginForm" ng-submit="lgnCntrl.login(lgnCntrl.user)">
+				<input type='text' placeholder='Email' name='email' ng-model='lgnCntrl.user.email' class='form-control' ng-required="true">
+
+				<input type='password' placeholder='Password' name='password' ng-model='lgnCntrl.user.password' class='form-control' ng-required="true" >
+				<input type='submit' class='btn btn-primary' value='Login' ng-disabled="loginForm.$invalid">
+			</form>
+			<div ng-show= "lgnCntrl.lgnmsg!='Not Sent'">{{lgnCntrl.lgnmsg}}</div>
+			<a href='/admin/register'>Register a new account</a>
+		</div>
+	</div>
+  </div>

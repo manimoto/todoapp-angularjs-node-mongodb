@@ -1,0 +1,76 @@
+ /*  app.all('/*', function(req, res, next) {
+           // CORS headers
+           res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
+           res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+           // Set custom headers for CORS
+           res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token,X-Key');
+           if (req.method == 'OPTIONS') {
+             res.status(200).end();
+           } else {
+             next();
+           }
+         });
+   
+   */
+
+
+
+   
+//app.use(methodOverride());
+//app.use(cookieParser());
+//app.set('views', path.join(__dirname, 'views'));
+//app.engine('html', require('ejs').renderFile);
+//app.set('view engine', 'html');
+//app.set('view engine', 'ejs');
+// app.use(require('express-session')({
+//     secret: 'Keyboard cat',
+//     resave: false,
+//     saveUninitialized: false
+// }));
+//app.use(passport.initialize());
+
+
+
+    //path = require('path');
+    //cookieParser = require('cookie-parser'),
+    //methodOverride = require('method-override'),
+
+
+
+
+    
+
+function isAdmin(req, res) {
+    if (req.isAuthenticated() && req.user.email === 'manish@gmail.com') {
+        console.log('Welcom admin cool Here is dashboard ');
+        next();
+    }
+    else {
+        console.log('You are not an admin');
+        res.redirect('/admin');
+    }
+}
+
+
+
+//
+/*
+postSchema.pre('save', function(next){
+  now = new Date();
+  this.updated_at = now;
+  next();
+});
+*/
+
+
+
+A useful library to coordinate asynchronous operations is async. In your case, the code would look something like this:
+
+var people = [ person1, person2, person3, person4, ... ];
+
+async.eachSeries(people, function(person, asyncdone) {
+  person.save(asyncdone);
+}, function(err) {
+  if (err) return console.log(err);
+  done(); // or `done(err)` if you want the pass the error up
+});
